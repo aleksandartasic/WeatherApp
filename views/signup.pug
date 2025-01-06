@@ -1,0 +1,26 @@
+extends layout.pug
+
+block content
+
+    nav(class="navbar bg-light d-flex justify-content-start mx-5")
+        a(class="nav-link ps-3" href="/") Weathertop
+        a(class="navbar-brand fs-5 ps-3" href="#") Registrieren
+
+
+    form(action="/signup" method="post" class="mx-5")
+        div(class="form-group")
+            label(for="email") Email
+            input(type="email", class="form-control w-50", id="email", placeholder="Email", name="email" required)
+        div(class="form-group")
+            label(for="vorname") Vorname
+            input(type="text", class="form-control w-50", id="vorname" placeholder="Vorname", name="vorname" required)
+        div(class="form-group")
+            label(for="nachname") Nachname
+            input(type="text", class="form-control w-50", id="nachname" placeholder="Nachname", name="nachname" required)
+        div(class="form-group")
+            label(for="passwort") Passwort
+            input(type="password", class="form-control w-50", id="passwort" placeholder="Passwort", name="passwort" required)
+        div(class="form-group pt-2")
+            button(type="submit", class="btn btn-primary") Registrieren
+        if already_used_email
+            div(class="alert alert-danger mt-2" role="alert") Die E-Mail-Adresse "#{already_used_email}" wird bereits verwendet. Bitte verwenden Sie eine andere E-Mail-Adresse.

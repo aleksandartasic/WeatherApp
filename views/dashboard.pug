@@ -1,0 +1,141 @@
+extends layout.pug
+
+block content
+
+    nav(class="navbar bg-light d-flex justify-content-start mx-5")
+        a(class="navbar-brand fs-5 ps-3" href="#") Weathertop
+        a(href="/logout")
+            button(type="submit" class="btn btn-secondary") Logout
+    h1(class="ms-5") Dashboard
+
+    each station in stations
+        div(class="border m-4")
+            div(class="row d-flex p-3")
+                div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                    p(class="fs-5") #{station.name}
+                    p(class="mb-1") Lat: #{station.latitude}
+                    p Lon: #{station.longitude}
+                if station.wetter
+                    div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                        if station.wetter >= 200 && station.wetter < 300
+                            div(class="d-flex justify-content-between")
+                                p(class="fs-5") Wetter
+                                i(class="bi bi-cloud-lightning-rain pe-3" style="font-size: 2rem;")
+                            p Gewitter
+                        else if station.wetter >= 300 && station.wetter < 400
+                            div(class="d-flex justify-content-between")
+                                p(class="fs-5") Wetter
+                                i(class="bi bi-cloud-drizzle pe-3" style="font-size: 2rem;")
+                            p Nieselregen
+                        else if station.wetter >= 400 && station.wetter < 500
+                            div(class="d-flex justify-content-between")
+                                p(class="fs-5") Wetter
+                                i(class="bi bi-cloudy pe-3" style="font-size: 2rem;")
+                            p Wolkig
+                        else if station.wetter >= 500 && station.wetter < 600
+                            div(class="d-flex justify-content-between")
+                                p(class="fs-5") Wetter
+                                i(class="bi bi-cloud-rain pe-3" style="font-size: 2rem;")
+                            p Regen
+                        else if station.wetter >= 600 && station.wetter < 700
+                            div(class="d-flex justify-content-between")
+                                p(class="fs-5") Wetter
+                                i(class="bi bi-cloud-snow pe-3" style="font-size: 2rem;")
+                            p Schnee
+                        else if station.wetter >= 700 && station.wetter < 800
+                            div(class="d-flex justify-content-between")
+                                p(class="fs-5") Wetter
+                                i(class="bi bi-cloud-fog pe-3" style="font-size: 2rem;")
+                            p Nebelig
+                        else if station.wetter >= 800
+                            div(class="d-flex justify-content-between")
+                                p(class="fs-5") Wetter
+                                i(class="bi bi-brightness-high pe-3" style="font-size: 2rem;")
+                            p Sonnig
+                    div(class="col d-flex text-white bg-dark mx-3 py-3 ps-4")
+                        div(class="container")
+                            p(class="fs-5") Temperatur
+                            p(class="mb-1") #{station.temperatur} Grad
+                            p(class="mb-1") Max: #{station.temp_max}
+                            p Min: #{station.temp_min}
+                        div(class="container")
+                            i(class="bi bi-thermometer-half text-secondary pe-2" style="font-size: 2rem;")
+                            if station.temp_trend === 1
+                                i(class="bi bi-arrow-up-right text-secondary pe-2" style="font-size: 2rem;")
+                            else if station.temp_trend === 0
+                                i(class="bi bi-arrow-down-right text-secondary pe-2" style="font-size: 2rem;")
+                            else
+                                i(class="bi bi-arrow-right text-secondary pe-2" style="font-size: 2rem;")
+                    div(class="col d-flex text-white bg-dark mx-3 py-3 ps-4")
+                        div(class="container")
+                            p(class="fs-5") Wind
+                            p(class="mb-1") #{station.wind} bft
+                            p(class="mb-1") #{station.wind_direction}
+                            p(class="mb-1") Max: #{station.wind_max}
+                            p Min: #{station.wind_min}
+                        div(class="container")
+                            i(class="bi bi-wind text-warning pe-2" style="font-size: 2rem;")
+                            if station.wind_trend === 1
+                                i(class="bi bi-arrow-up-right text-warning pe-2" style="font-size: 2rem;")
+                            else if station.wind_trend === 0
+                                i(class="bi bi-arrow-down-right text-warning pe-2" style="font-size: 2rem;")
+                            else
+                                i(class="bi bi-arrow-right text-warning pe-2" style="font-size: 2rem;")
+                    div(class="col d-flex text-white bg-dark mx-3 py-3 ps-4")
+                        div(class="container")
+                            p(class="fs-5") Luftdruck
+                            p(class="mb-1") #{station.luftdruck} hpa
+                            p(class="mb-1") Max: #{station.luftdruck_max}
+                            p Min: #{station.luftdruck_min}
+                        div(class="container")
+                            i(class="bi bi-speedometer pe-2" style="font-size: 2rem; color: #eeea4e;")
+                            if station.luftdruck_trend === 1
+                                i(class="bi bi-arrow-up-right pe-2" style="font-size: 2rem; color: #eeea4e;")
+                            else if station.luftdruck_trend === 0
+                                i(class="bi bi-arrow-down-right pe-2" style="font-size: 2rem; color: #eeea4e;")
+                            else
+                                i(class="bi bi-arrow-right pe-2" style="font-size: 2rem; color: #eeea4e;")
+                else
+                    div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                        p keine Messungen vorhanden!
+                    div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                        p keine Messungen vorhanden!
+                    div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                        p keine Messungen vorhanden!
+                    div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                        p keine Messungen vorhanden!
+            div(class="d-flex")
+                a(class="ps-2" href="/stations/" + station.id)
+                    i(class="bi bi-folder")
+                form(action="/dashboard" method="POST")
+                    input(type="hidden" name="station_id" value=station.id)
+                    button(type="submit" style="border: none; background: none;")
+                        i(class="bi bi-trash text-primary")
+
+
+    form(action="/dashboard" method="POST" class="m-5")
+        div(class="row")
+            div(class="form-group col")
+                label(for="station_name") Name Wetterstation
+                input(type="text" class="form-control mt-2" id="station_name" name="station_name" required)
+            div(class="form-group col")
+                label(for="lat") Breitengrad
+                input(type="number" step="any" class="form-control mt-2" id="lat" name="station_latitude" required)
+            div(class="form-group col")
+                label(for="lon") Längengrad
+                input(type="number" step="any" class="form-control mt-2" id="lon" name="station_longitude" required)
+        div(class="form-group pt-2")
+            button(type="submit" class="btn btn-primary") Station hinzufügen
+
+    div(id="map" class="m-4" style="height: 500px;")
+    script.
+        var map = L.map('map').setView([48.647428, 11.755371], 8);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var stations = !{JSON.stringify(stations)};
+        for (var i = 0; i < stations.length; i++) {
+            var marker = L.marker([stations[i].latitude, stations[i].longitude]).addTo(map);
+            marker.bindPopup(`<a href="/stations/${stations[i].id}">${stations[i].name}</a>`).openPopup();
+        }

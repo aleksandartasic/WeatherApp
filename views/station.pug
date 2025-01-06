@@ -1,0 +1,152 @@
+extends layout.pug
+
+block content
+
+    nav(class="navbar bg-light d-flex justify-content-start mx-5")
+        a(class="navbar-brand fs-5 ps-3" href="/dashboard") Dashboard
+        a(href="/logout")
+            button(type="submit" class="btn btn-secondary") Logout
+
+    div(class="border m-4")
+        div(class="row d-flex p-3")
+            div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                p(class="fs-5") #{readings[0].name}
+                p Lat: #{readings[0].latitude}
+                p Lon: #{readings[0].longitude}
+            if readings[0].reading_id
+                div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                    if readings[0].wetter >= 200 && readings[0].wetter < 300
+                        div(class="d-flex justify-content-between")
+                            p(class="fs-5") Wetter
+                            i(class="bi bi-cloud-lightning-rain pe-3" style="font-size: 2rem;")
+                        p Gewitter
+                    else if readings[0].wetter >= 300 && readings[0].wetter < 400
+                        div(class="d-flex justify-content-between")
+                            p(class="fs-5") Wetter
+                            i(class="bi bi-cloud-drizzle pe-3" style="font-size: 2rem;")
+                        p Nieselregen
+                    else if readings[0].wetter >= 400 && readings[0].wetter < 500
+                        div(class="d-flex justify-content-between")
+                            p(class="fs-5") Wetter
+                            i(class="bi bi-cloudy pe-3" style="font-size: 2rem;")
+                        p Wolkig
+                    else if readings[0].wetter >= 500 && readings[0].wetter < 600
+                        div(class="d-flex justify-content-between")
+                            p(class="fs-5") Wetter
+                            i(class="bi bi-cloud-rain pe-3" style="font-size: 2rem;")
+                        p Regen
+                    else if readings[0].wetter >= 600 && readings[0].wetter < 700
+                        div(class="d-flex justify-content-between")
+                            p(class="fs-5") Wetter
+                            i(class="bi bi-cloud-snow pe-3" style="font-size: 2rem;")
+                        p Schnee
+                    else if readings[0].wetter >= 700 && readings[0].wetter < 800
+                        div(class="d-flex justify-content-between")
+                            p(class="fs-5") Wetter
+                            i(class="bi bi-cloud-fog pe-3" style="font-size: 2rem;")
+                        p Nebelig
+                    else if readings[0].wetter >= 800
+                        div(class="d-flex justify-content-between")
+                            p(class="fs-5") Wetter
+                            i(class="bi bi-brightness-high pe-3" style="font-size: 2rem;")
+                        p Sonnig
+                div(class="col d-flex text-white bg-dark mx-3 py-3 ps-4")
+                    div(class="container")
+                        p(class="fs-5") Temperatur
+                        p(class="mb-1") #{readings[0].temperatur} Grad
+                        p(class="mb-1") Max: #{readings[0].temp_max}
+                        p Min: #{readings[0].temp_min}
+                    div(class="container")
+                        i(class="bi bi-thermometer-half text-secondary pe-2" style="font-size: 2rem;")
+                        if readings[0].temp_trend === 1
+                            i(class="bi bi-arrow-up-right text-secondary pe-2" style="font-size: 2rem;")
+                        else if readings[0].temp_trend === 0
+                            i(class="bi bi-arrow-down-right text-secondary pe-2" style="font-size: 2rem;")
+                        else
+                            i(class="bi bi-arrow-right text-secondary pe-2" style="font-size: 2rem;")
+                div(class="col d-flex text-white bg-dark mx-3 py-3 ps-4")
+                    div(class="container")
+                        p(class="fs-5") Wind
+                        p(class="mb-1") #{readings[0].wind} bft
+                        p(class="mb-1") #{readings[0].wind_direction}
+                        p(class="mb-1") Max: #{readings[0].wind_max}
+                        p Min: #{readings[0].wind_min}
+                    div(class="container")
+                        i(class="bi bi-wind text-warning pe-2" style="font-size: 2rem;")
+                        if readings[0].wind_trend === 1
+                            i(class="bi bi-arrow-up-right text-warning pe-2" style="font-size: 2rem;")
+                        else if readings[0].wind_trend === 0
+                            i(class="bi bi-arrow-down-right text-warning pe-2" style="font-size: 2rem;")
+                        else
+                            i(class="bi bi-arrow-right text-warning pe-2" style="font-size: 2rem;")
+                div(class="col d-flex text-white bg-dark mx-3 py-3 ps-4")
+                    div(class="container")
+                        p(class="fs-5") Luftdruck
+                        p(class="mb-1") #{readings[0].luftdruck} hpa
+                        p(class="mb-1") Max: #{readings[0].luftdruck_max}
+                        p Min: #{readings[0].luftdruck_min}
+                    div(class="container")
+                        i(class="bi bi-speedometer pe-2" style="font-size: 2rem; color: #eeea4e;")
+                        if readings[0].luftdruck_trend === 1
+                            i(class="bi bi-arrow-up-right pe-2" style="font-size: 2rem; color: #eeea4e;")
+                        else if readings[0].luftdruck_trend === 0
+                            i(class="bi bi-arrow-down-right pe-2" style="font-size: 2rem; color: #eeea4e;")
+                        else
+                            i(class="bi bi-arrow-right pe-2" style="font-size: 2rem; color: #eeea4e;")
+            else
+                div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                    p keine Messungen vorhanden!
+                div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                    p keine Messungen vorhanden!
+                div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                    p keine Messungen vorhanden!
+                div(class="col text-white bg-dark mx-3 py-3 ps-4")
+                    p keine Messungen vorhanden!
+
+    if readings[0].reading_id
+        table(class="table m-4")
+            thead
+                tr
+                    th(scope="col") Zeitpunkt
+                    th(scope="col") Wetter
+                    th(scope="col") Temperatur
+                    th(scope="col") Wind
+                    th(scope="col") Luftdruck
+            tbody
+                each reading in readings
+                    tr
+                        td #{reading.zeitpunkt}
+                        td #{reading.wetter}
+                        td #{reading.temperatur}
+                        td #{reading.wind}
+                        td #{reading.luftdruck}
+                        td
+                            form(action="/stations" method="POST")
+                                input(type="hidden" name="reading_id" value=reading.reading_id)
+                                input(type="hidden" name="station_id" value=reading.station_id)
+                                button(type="submit" style="border: none; background: none;")
+                                    i(class="bi bi-x-circle")
+
+    form(action="/stations" method="POST" class="m-4")
+        div(class="row")
+            div(class="form-group col")
+                label(for="wetter") Code
+                input(type="number" min="200" max="899" class="form-control mt-2" id="wetter" name="reading_wetter" required)
+            div(class="form-group col")
+                label(for="temperatur") Temperatur
+                input(type="number" step="any" class="form-control mt-2" id="temperatur" name="reading_temperatur" required)
+            div(class="form-group col")
+                label(for="wind_speed") Windgeschwindigkeit
+                input(type="number" min="0" step="any" class="form-control mt-2" id="wind_speed" name="reading_wind_speed" required)
+            div(class="form-group col")
+                label(for="wind_richtung") Windrichtung
+                input(type="number" min="0" class="form-control mt-2" id="wind_richtung" name="reading_wind_richtung" required)
+            div(class="form-group col")
+                label(for="luftdruck") Luftdruck
+                input(type="number" min="0" class="form-control mt-2" id="luftdruck" name="reading_luftdruck" required)
+        div(class="form-group pt-2")
+            input(type="hidden" name="station_id" value=readings[0].station_id)
+            button(type="submit" class="btn btn-primary") Messung hinzufügen
+
+
+

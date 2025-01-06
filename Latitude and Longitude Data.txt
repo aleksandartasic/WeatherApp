@@ -1,0 +1,15 @@
+Regensburg
+Lat: 49.016914
+Lon: 12.093362
+
+Kelheim
+Lat: 48.921482
+Lon: 11.885331
+
+München
+Lat: 48.137108
+Lon: 11.575382
+
+Ingolstadt
+Lat: 48.763016
+Lon: 11.42504

@@ -1,0 +1,24 @@
+extends layout.pug
+
+block content
+
+    nav(class="navbar bg-light d-flex justify-content-start mx-5")
+        a(class="navbar-brand fs-5 ps-3" href="#") Weathertop
+        a(class="nav-link" href="/signup") Registrieren
+
+    div(class="d-flex mx-5 row")
+        img(src="/weather.jpg" class="w-50 h-50 me-2 p-0 col")
+        form(action="/" method="post" class="ms-2 p-0 col")
+            div(class="form-group")
+                label(for="email") Email
+                input(type="email", class="form-control", id="email", placeholder="Email eingeben", name="email" required)
+            div(class="form-group")
+                label(for="passwort") Passwort
+                input(type="password", class="form-control", id="passwort" placeholder="Passwort eingeben", name="passwort" required)
+            div(class="form-group pt-2")
+                button(type="submit", class="btn btn-primary") Einloggen
+            if login_error
+                div(class="alert alert-danger mt-2" role="alert") #{login_error}
+
+
+

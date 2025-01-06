@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="oth_forms_file" />
+    <orderEntry type="module" module-name="shopping_list_node_express_postgres_starter" />
+    <orderEntry type="module" module-name="shopping_list_node_express_postgres_login_session" />
+    <orderEntry type="module" module-name="hellojquery" />
+    <orderEntry type="module" module-name="shopping_list_node_express_postgres" />
+    <orderEntry type="module" module-name="hello_server_template_linking" />
+    <orderEntry type="module" module-name="airline_0" />
+    <orderEntry type="module" module-name="airline_0_async" />
+    <orderEntry type="module" module-name="hello_db_node_postgres" />
+    <orderEntry type="module" module-name="bootstrap_demos" />
+    <orderEntry type="module" module-name="studienleistung-mi-happy-coders-medieninformatik-wise-2324-aleksandartasic" />
+    <orderEntry type="module" module-name="hello_server_form" />
+    <orderEntry type="module" module-name="oth_forms_file_starter" />
+    <orderEntry type="module" module-name="employee_app_module_complete" />
+    <orderEntry type="module" module-name="employee_app_module_complete_starter" />
+    <orderEntry type="module" module-name="employee_app_module_starter" />
+    <orderEntry type="module" module-name="airline_1" />
+    <orderEntry type="module" module-name="express_demo_route_params" />
+    <orderEntry type="module" module-name="login" />
+    <orderEntry type="module" module-name="notes_app_no_session" />
+    <orderEntry type="module" module-name="login_sql_injection" />
+    <orderEntry type="module" module-name="notes_app_sessions" />
+    <orderEntry type="module" module-name="session_page_demo" />
+    <orderEntry type="module" module-name="mensa_spa_starter" />
+    <orderEntry type="module" module-name="hello_world_ajax_manipulate_site" />
+    <orderEntry type="module" module-name="weather-explorer-1" />
+  </component>
+</module>

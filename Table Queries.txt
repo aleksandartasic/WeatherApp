@@ -1,0 +1,79 @@
+update readings 
+set windrichtung = 100, zeitpunkt = '2021-12-31 09:30:05+01:00'::TIMESTAMPTZ
+where id = 2;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2022-01-24 08:53:51+01:00'::TIMESTAMPTZ
+where id = 3;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2022-03-18 12:21:00+01:00'::TIMESTAMPTZ
+where id = 4;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2022-05-04 12:09:41+02:00'::TIMESTAMPTZ
+where id = 5;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2022-05-04 12:16:17+02:00'::TIMESTAMPTZ
+where id = 6;
+
+update readings 
+set windrichtung = 180, zeitpunkt = '2022-05-11 08:42:44+02:00'::TIMESTAMPTZ
+where id = 7;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2021-05-11 08:42:44+02:00'::TIMESTAMPTZ
+where id = 8;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2021-12-31 09:30:05+01:00'::TIMESTAMPTZ
+where id = 9;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2022-01-24 08:53:51+01:00'::TIMESTAMPTZ
+where id = 10;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2022-03-18 12:21:00+01:00'::TIMESTAMPTZ
+where id = 11;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2022-05-04 12:09:41+02:00'::TIMESTAMPTZ
+where id = 12;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2022-05-04 12:16:17+02:00'::TIMESTAMPTZ
+where id = 13;
+
+update readings 
+set windrichtung = 30, zeitpunkt = '2022-05-11 08:42:44+02:00'::TIMESTAMPTZ
+where id = 14;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2021-05-11 08:42:44+02:00'::TIMESTAMPTZ
+where id = 15;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2021-12-31 09:30:05+01:00'::TIMESTAMPTZ
+where id = 16;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2022-01-24 08:53:51+01:00'::TIMESTAMPTZ
+where id = 17;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2022-03-18 12:21:00+01:00'::TIMESTAMPTZ
+where id = 18;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2022-05-04 12:09:41+02:00'::TIMESTAMPTZ
+where id = 19;
+
+update readings 
+set windrichtung = 190, zeitpunkt = '2022-05-04 12:16:17+02:00'::TIMESTAMPTZ
+where id = 20;
+
+update readings 
+set windrichtung = 100, zeitpunkt = '2022-05-11 08:42:44+02:00'::TIMESTAMPTZ
+where id = 21;

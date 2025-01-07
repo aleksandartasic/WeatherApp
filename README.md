@@ -36,11 +36,13 @@ cp example.env .env
 Edit the .env file and provide the necessary configuration, like in provided example.env file:
 
 PORT=3000
+
 DB_CON_STRING=your_database_connection_string
+
 API_KEY=your_api_key
 
-#### Replace your_database_connection_string with the connection string for your database
-#### Replace your_api_key with an API key if needed (currently not used in this version)
+Replace your_database_connection_string with the connection string for your database
+Replace your_api_key with an API key if needed (currently not used in this version)
 
 ## Running the Application
 
@@ -51,7 +53,7 @@ npm start
 http://localhost:3000
 
 ### 3. Register and Log In
-#### Navigate to the registration page and create an account
-#### Log in with your credentials to access weather station functionalities
+Navigate to the registration page and create an account
+Log in with your credentials to access weather station functionalities
 
 

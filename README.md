@@ -42,6 +42,7 @@ DB_CON_STRING=your_database_connection_string
 API_KEY=your_api_key
 
 Replace your_database_connection_string with the connection string for your database
+
 Replace your_api_key with an API key if needed (currently not used in this version)
 
 ## Running the Application
@@ -54,6 +55,7 @@ http://localhost:3000
 
 ### 3. Register and Log In
 Navigate to the registration page and create an account
+
 Log in with your credentials to access weather station functionalities
 
 
